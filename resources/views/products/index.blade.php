@@ -50,13 +50,12 @@
                                     ${{ number_format($product->price, 2) }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    {{-- Links para editar e deletar (serão implementados depois) --}}
-                                    {{-- <a href="{{ route('products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a> --}}
-                                    {{-- <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:text-red-900 ml-4">Delete</button>
-                                    </form> --}}
+                                    <a href="{{ route('products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline ml-2">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @empty
